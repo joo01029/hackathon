@@ -91,7 +91,7 @@ public class PostServiceImpl implements PostService{
 			post.setTitle(updatePostDto.getTitle());
 			post.setContent(updatePostDto.getContent());
 			post.setIsSecret(updatePostDto.getIsSecret());
-			post.setUpdateAt(new Date());
+			post.setUpdateAt(new Date().getTime());
 
 			postRepo.save(post);
 		}catch (Exception e){

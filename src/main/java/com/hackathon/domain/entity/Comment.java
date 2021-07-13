@@ -21,10 +21,10 @@ public class Comment {
 	private Boolean isSecret = false;
 
 	@Column(nullable = false)
-	private Date createAt = new Date();
+	private Long createAt = new Date().getTime();
 
 	@Column(nullable = false)
-	private Date updateAt = new Date();
+	private Long updateAt = new Date().getTime();
 
 	@ManyToOne
 	@JoinColumn

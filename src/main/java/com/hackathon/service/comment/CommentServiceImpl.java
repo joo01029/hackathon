@@ -76,7 +76,7 @@ public class CommentServiceImpl implements CommentService{
 
 			comment.setComment(updateCommentDto.getComment());
 			comment.setIsSecret(updateCommentDto.getIsSecret());
-			comment.setUpdateAt(new Date());
+			comment.setUpdateAt(new Date().getTime());
 			commentRepo.save(comment);
 		}catch (Exception e){
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();

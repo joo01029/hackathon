@@ -14,7 +14,7 @@ public class GetPostRO {
 	private String content;
 	private GetUserRO user;
 	private Long commentsNum;
-	private Date date;
+	private Long date;
 	private Boolean isUpdated = false;
 	private Boolean isMe;
 
@@ -26,7 +26,7 @@ public class GetPostRO {
 		this.date = post.getUpdateAt();
 		this.commentsNum = commentsNum;
 
-		if (post.getCreateAt().getTime() < post.getUpdateAt().getTime()) {
+		if (post.getCreateAt() < post.getUpdateAt()) {
 			this.isUpdated = true;
 		}
 

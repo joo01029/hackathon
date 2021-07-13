@@ -10,6 +10,6 @@ public class Response {
 
 	public Response(HttpStatus status, String message){
 		this.status = status.value();
-		this.message = message.substring(3).trim();
+		this.message = message;
 	}
 }

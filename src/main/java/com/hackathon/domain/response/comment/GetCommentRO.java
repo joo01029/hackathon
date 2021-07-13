@@ -12,7 +12,7 @@ public class GetCommentRO {
 	private Long id;
 	private String comment;
 	private GetUserRO user;
-	private Date date;
+	private Long date;
 	private Boolean isUpdated = false;
 	private Boolean isMe = false;
 	private Boolean isWriter = false;
@@ -22,7 +22,7 @@ public class GetCommentRO {
 		this.comment = comment.getComment();
 
 		this.date = comment.getUpdateAt();
-		if (comment.getCreateAt().getTime() < comment.getUpdateAt().getTime()) {
+		if (comment.getCreateAt() < comment.getUpdateAt()) {
 			this.isUpdated = true;
 		}
 

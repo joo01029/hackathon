@@ -13,12 +13,12 @@ public class GlobalException {
 
 	@ExceptionHandler(HttpClientErrorException.class)
 	public ResponseEntity<Response> handleHttpClientException(HttpClientErrorException e){
-		Response data = new Response(e.getStatusCode(), e.getMessage());
+		Response data = new Response(e.getStatusCode(), e.getMessage().substring(4));
 		return new ResponseEntity<Response>(data, e.getStatusCode());
 	}
 	@ExceptionHandler(HttpServerErrorException.class)
-	public ResponseEntity<Response> handleHttpClientException(HttpServerErrorException e){
-		Response data = new Response(e.getStatusCode(), e.getMessage());
+	public ResponseEntity<Response> handleHttpServerException(HttpServerErrorException e){
+		Response data = new Response(e.getStatusCode(), e.getMessage().substring(4));
 		return new ResponseEntity<Response>(data, e.getStatusCode());
 	}
 	@ExceptionHandler(Exception.class)

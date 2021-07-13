@@ -7,7 +7,7 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://us-cdbr-east-04.cleardb.com/heroku_f30cc96453b7209?reconnect=true&serverTimezone=UTC
+    url: jdbc:mysql://us-cdbr-east-04.cleardb.com/heroku_f30cc96453b7209?useUnicode=true&characterEncoding=UTF-8
     username: b5fdb575960fc9
     password: 3aa8c39f
   jpa:
