@@ -78,6 +78,23 @@ public class PostServiceImpl implements PostService{
 	}
 
 	@Override
+	public GetPostRO getPost(Long postId, User user) {
+		try{
+			Post post = postRepo.findById(postId).orElseGet(()->{
+				throw new HttpClientErrorException(HttpStatus.ACCEPTED, "게시글이 존재하지않습니다");
+			});
+			if(!post.getSchool().getId().equals(user.getSchool().getId())){
+				throw new HttpClientErrorException(HttpStatus.ACCEPTED, "학교다 다름니다.");
+			}
+			Long commentsNum = commentRepo.countByPost(post);
+
+			return new GetPostRO(post, user, commentsNum);
+		}catch (Exception e){
+			throw e;
+		}
+	}
+
+	@Override
 	@Transactional
 	public void updatePost(Long postId, UpdatePostDto updatePostDto, User user) {
 		try{

@@ -48,11 +48,20 @@ public class PostController {
 		return new Response(HttpStatus.OK, "성공");
 	}
 
-	@GetMapping("/{searchValue}")
+	@GetMapping("search/{searchValue}")
 	@ApiOperation("게시글 검색")
-	public ResponseData<List<GetPostRO>> getPost(@PathVariable String searchValue, HttpServletRequest request) {
+	public ResponseData<List<GetPostRO>> searchPost(@PathVariable String searchValue, HttpServletRequest request) {
 		User user = (User) request.getAttribute("user");
 		List<GetPostRO> posts = postService.getPosts(user, searchValue);
+
+		return new ResponseData<>(HttpStatus.OK, "성공", posts);
+	}
+
+	@GetMapping("detail/{postId}")
+	@ApiOperation("게시글 상세")
+	public ResponseData<GetPostRO> getPost(@PathVariable Long postId, HttpServletRequest request) {
+		User user = (User) request.getAttribute("user");
+		GetPostRO posts = postService.getPost(postId, user);
 
 		return new ResponseData<>(HttpStatus.OK, "성공", posts);
 	}

@@ -15,6 +15,8 @@ public interface PostService {
 
 	List<GetPostRO> getPosts(User user, String postValue);
 
+	GetPostRO getPost(Long postId, User user);
+
 	void updatePost(Long postId, UpdatePostDto updatePostDto, User user);
 
 	void removePost(Long postId, User user);
