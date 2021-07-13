@@ -7,7 +7,7 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/hackathon?serverTimezone=UTC
+    url: jdbc:mysql://us-cdbr-east-04.cleardb.com/heroku_f30cc96453b7209?reconnect=true&serverTimezone=UTC
     username: root
     password: pure6671.
   jpa:
@@ -36,8 +36,7 @@ logging:
               BasicBinder: trace
 
 server:
-  get:
-    url: 10.80.162.184:8080
+  port: 80
 
 
 auth:
