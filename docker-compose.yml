@@ -19,7 +19,7 @@ services:
   application:
     build: .
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/hackathon?useUnicode=true
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/hackathon?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: 1234
     ports:

@@ -41,6 +41,10 @@ dependencies {
 
 }
 
+bootJar {
+    mainClassName = 'com.hackathon.HackathonApplication'
+}
+
 test {
     useJUnitPlatform()
 }
