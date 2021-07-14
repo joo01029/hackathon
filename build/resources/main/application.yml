@@ -1,0 +1,46 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: eothrh3@gmail.com
+    password: easlejsmjirjppdp
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #url: jdbc:mysql://us-cdbr-east-04.cleardb.com/heroku_f30cc96453b7209?useUnicode=true&characterEncoding=utf8
+#    url:54a2f15b-5c0f-46df-8954-7e38e612c2bd.c1ogj3sd0tgtu0lqde00.databases.appdomain.cloud:32733/bludb
+    url: jdbc:mysql://localhost:3306/hackathon?serverTimezone=UTC
+    #username: b5fdb575960fc9
+    #password: 3aa8c39f
+    username: root
+    password: pure6671.
+#    username: <user name>
+#    data-password: pure6671
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+    open-in-view: true
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 10MB
+  mvc:
+    static-path-pattern: /static/**
+
+logging:
+  level:
+    org:
+      hibernate:
+        sql: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: trace
+
+
+auth:
+  access: asdwqedsaasdwqesadsjosjndknaskmlcnkejdoknlksamlcnsqlkndoqkwacsdqwa
