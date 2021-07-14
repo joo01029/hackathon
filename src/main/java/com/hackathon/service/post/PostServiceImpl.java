@@ -62,6 +62,9 @@ public class PostServiceImpl implements PostService{
 	public List<GetPostRO> getPosts(User user, String postValue) {
 		try{
 			School usersSchool = user.getSchool();
+			if(postValue == null){
+				postValue = "";
+			}
 			postValue = "%"+postValue+"%";
 			List<Post> posts = postRepo.findBySchoolAndTitleLikeOrContentLike(usersSchool.getId(), postValue);
 

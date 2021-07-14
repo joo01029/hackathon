@@ -54,12 +54,14 @@ public class SchoolServiceImpl implements SchoolService{
 			JsonObject obj = ApiRequest.getRequest(apiUrl);
 			JsonArray schoolInfo = (JsonArray) obj.get("schoolInfo");
 			List<GetSchoolRO> schoolList = new ArrayList<>();
-			JsonObject body = (JsonObject) schoolInfo.get(1);
-			JsonArray row = (JsonArray) body.get("row");
-			for(int i = 0; i < row.size(); i++){
-				JsonObject jsonSchool = (JsonObject) row.get(i);
-				GetSchoolRO school = new GetSchoolRO(jsonSchool);
-				schoolList.add(school);
+			if(schoolInfo != null) {
+				JsonObject body = (JsonObject) schoolInfo.get(1);
+				JsonArray row = (JsonArray) body.get("row");
+				for (int i = 0; i < row.size(); i++) {
+					JsonObject jsonSchool = (JsonObject) row.get(i);
+					GetSchoolRO school = new GetSchoolRO(jsonSchool);
+					schoolList.add(school);
+				}
 			}
 			return schoolList;
 		}catch (Exception e){

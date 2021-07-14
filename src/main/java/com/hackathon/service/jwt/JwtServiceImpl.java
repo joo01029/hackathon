@@ -39,7 +39,7 @@ public class JwtServiceImpl implements JwtService {
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "서버 에러");
+			throw new HttpServerErrorException(HttpStatus.ACCEPTED, "서버 에러");
 		}
 	}
 
@@ -52,7 +52,7 @@ public class JwtServiceImpl implements JwtService {
 			return new SecretKeySpec(secretKey, signatureAlgorithm.getJcaName());
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "key생성 에러");
+			throw new HttpServerErrorException(HttpStatus.ACCEPTED, "key생성 에러");
 		}
 	}
 
@@ -67,7 +67,7 @@ public class JwtServiceImpl implements JwtService {
 					.compact();
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "토큰 생성 에러");
+			throw new HttpServerErrorException(HttpStatus.ACCEPTED, "토큰 생성 에러");
 		}
 	}
 
@@ -97,13 +97,13 @@ public class JwtServiceImpl implements JwtService {
 			return claims;
 		} catch (ExpiredJwtException e) {
 			e.printStackTrace();
-			throw new HttpClientErrorException(HttpStatus.GONE, "토큰 만료");
+			throw new HttpClientErrorException(HttpStatus.ACCEPTED, "토큰 만료");
 		} catch (SignatureException | MalformedJwtException e) {
 			e.printStackTrace();
-			throw new HttpClientErrorException(HttpStatus.UNAUTHORIZED, "토큰 위조");
+			throw new HttpClientErrorException(HttpStatus.ACCEPTED, "토큰 위조");
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "서버 에러");
+			throw new HttpServerErrorException(HttpStatus.ACCEPTED, "서버 에러");
 		}
 	}
 }

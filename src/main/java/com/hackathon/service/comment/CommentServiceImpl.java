@@ -50,7 +50,7 @@ public class CommentServiceImpl implements CommentService{
 				throw new HttpClientErrorException(HttpStatus.ACCEPTED, "존재하지 않는 게시글입니다.");
 			});
 
-			List<Comment> comments = commentRepo.findByPostOrderByCreateAtDesc(post);
+			List<Comment> comments = commentRepo.findByPostOrderByCreateAt(post);
 
 			List<GetCommentRO> responseComments = new ArrayList<>();
 			for(Comment comment:comments){

@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface CommentRepo extends JpaRepository<Comment, Long> {
-	List<Comment> findByPostOrderByCreateAtDesc(Post post);
+	List<Comment> findByPostOrderByCreateAt(Post post);
 
 	Optional<Comment> findById(Long id);
 

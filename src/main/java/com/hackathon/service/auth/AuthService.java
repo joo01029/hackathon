@@ -5,7 +5,7 @@ import com.hackathon.domain.dto.auth.SigninDto;
 import com.hackathon.domain.response.auth.LoginRO;
 
 public interface AuthService {
-	void signin(SigninDto signinDto);
+	void signup(SigninDto signinDto);
 
 	LoginRO login(LoginDto loginDto);
 

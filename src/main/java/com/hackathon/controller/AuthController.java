@@ -20,7 +20,7 @@ public class AuthController {
 	@PostMapping("/signup")
 	@ApiOperation("회원가입")
 	public Response signup(@RequestBody SigninDto signinDto) {
-		authService.signin(signinDto);
+		authService.signup(signinDto);
 
 		return new Response(HttpStatus.OK, "성공");
 	}

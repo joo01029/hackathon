@@ -1,6 +1,7 @@
 package com.hackathon.domain.entity;
 
 import com.hackathon.domain.dto.auth.SigninDto;
+import com.hackathon.enums.Admin;
 import lombok.Data;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -30,6 +31,9 @@ public class User {
 
 	@Column(nullable = false)
 	private String name;
+
+	@Column(nullable = false)
+	private Admin isAdmin = Admin.USER;
 
 	@ManyToOne
 	@JoinColumn(nullable = false)

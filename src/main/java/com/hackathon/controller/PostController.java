@@ -30,6 +30,7 @@ public class PostController {
 		return new ResponseData<>(HttpStatus.OK, "성공", posts);
 	}
 
+
 	@PostMapping
 	@ApiOperation("게시글 작성")
 	public Response writePost(@RequestBody WritePostDto writePostDto, HttpServletRequest request) {

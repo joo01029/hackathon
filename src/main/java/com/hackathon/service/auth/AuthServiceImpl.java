@@ -29,7 +29,7 @@ public class AuthServiceImpl implements AuthService {
 
 	@Override
 	@Transactional
-	public void signin(SigninDto signinDto) {
+	public void signup(SigninDto signinDto) {
 		try {
 			Optional<User> existUser = userRepo.findById(signinDto.getId());
 			if (existUser.isPresent()) {
